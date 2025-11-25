@@ -22,21 +22,25 @@ Open your terminal in the project folder and run the following command.
 
 ```bash
 g++ -std=c++20 main.cpp EvaluationVisitor.cpp Lexer.cpp Parser.cpp SymbolTable.cpp Syntax.cpp Token.cpp -o interpreter
+
+```
 ### Usage
 * **Running a Script
 1 To execute a Python script, simply pass the file path as an argument to the executable.
 
 - On Windows: PowerShell
+```bash
 .\interpreter.exe myscript.py
-
+```
 - On Linux / macOS: Bash
+```bash
 ./interpreter myscript.py
-
+```
 2. Supported Syntax Examples
 The interpreter currently supports a subset of Python syntax. Here is what you can write in your .py files:
 
 - Variables & Math:
-
+```bash
 Python
 
 x = 10
@@ -52,3 +56,4 @@ if val > 5:
     print(1)
 else:
     print(0)
+```
