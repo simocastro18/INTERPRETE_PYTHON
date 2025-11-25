@@ -1,55 +1,54 @@
-# Python Subset Interpreter
+# C++ Python Interpreter
 
-Un interprete scritto in C++ per un sottoinsieme del linguaggio Python, sviluppato come progetto per il corso di Informatica e Computazione.
+A custom, lightweight Python syntax interpreter written from scratch in C++.
+This project demonstrates the core concepts of compiler design: lexical analysis (tokenization), parsing (AST generation), and evaluation.
 
-## Descrizione
+## Features
 
-Questo progetto implementa un interprete per un sottoinsieme del linguaggio Python, sviluppato interamente in C++ secondo le specifiche del corso di Informatica e Computazione. L'interprete supporta costrutti fondamentali della programmazione come variabili, strutture di controllo, funzioni e operazioni di I/O di base.
+* **Custom Lexer & Parser**: Built from the ground up without external libraries.
+* **Variable Management**: Support for variable declaration and assignment.
+* **Arithmetic Operations**: Handles basic math expressions (`+`, `-`, `*`, `/`).
+* **Control Flow**: Support for basic loops and conditionals (*Note: update this based on what your code actually supports*).
+* **C++20**: Utilizes modern C++ standards for efficient memory management and performance.
 
-## Caratteristiche Supportate
+## Build & Run
 
-### Tipi di Dato
-- **Numeri interi** (`int`) - interi a 64 bit con segno
-- **Booleani** (`bool`) - `True` e `False`
-- **Liste** (`list`) - vettori dinamici di valori interi o booleani
+### Prerequisites
+* A C++ compiler that supports C++20 (e.g., GCC 10+, Clang 10+, MSVC).
 
-### Strutture di Controllo
-- **Condizionali**: `if`, `elif`, `else`
-- **Cicli**: `while`
-- **Break e Continue**: per il controllo dei cicli
+### Compilation
+Open your terminal in the project folder and run the following command.
+**Note:** Make sure to include all your `.cpp` files (e.g., `lexer.cpp`, `parser.cpp`, etc.).
 
-### Operazioni su Liste
-- Creazione: `id = list()`
-- Aggiunta elementi: `id.append(expr)`
-- Accesso in lettura/scrittura: `id[expr]`
+```bash
+g++ -std=c++20 main.cpp EvaluationVisitor.cpp Lexer.cpp Parser.cpp SymbolTable.cpp Syntax.cpp Token.cpp -o interpreter
+### Usage
+* **Running a Script
+1 To execute a Python script, simply pass the file path as an argument to the executable.
 
-### Operatori
-- **Aritmetici**: `+`, `-`, `*`, `//` (divisione intera)
-- **Relazionali**: `==`, `!=`, `<`, `<=`, `>`, `>=`
-- **Booleani**: `and`, `or`, `not`
-- **Unari**: `-` (negazione), `not`
+- On Windows: PowerShell
+.\interpreter.exe myscript.py
 
-### Input/Output
-- Funzione `print(expr)` per l'output
+- On Linux / macOS: Bash
+./interpreter myscript.py
 
-## Specifiche Tecniche
+2. Supported Syntax Examples
+The interpreter currently supports a subset of Python syntax. Here is what you can write in your .py files:
 
-### Sistema di Tokenizzazione
-L'interprete implementa un sistema di tokenizzazione che include:
-- Gestione dell'indentazione con token `indent` e `dedent`
-- Riconoscimento di numeri, identificatori e parole chiave
-- Supporto per newline e endmarker
+- Variables & Math:
 
-### Grammatica Supportata
-La grammatica implementata segue le produzioni specificate nel progetto:
-- Programmazione strutturata con blocchi indentati
-- Espressioni con precedenza e associatività corrette
-- Gestione completa degli scope delle variabili
+Python
 
-### Semantica
-- Variabili globali uniche (scope unico)
-- Tipizzazione dinamica
-- Liste eterogenee (possono contenere interi e booleani)
-- Short-circuit per operatori booleani
-- Gestione errori di tipo e runtime
+x = 10
+y = 5
+result = (x + y) * 2
+print(result)
+Conditions (If/Else): (Remove this block if you haven't implemented 'if' yet)
 
+Python
+
+val = 10
+if val > 5:
+    print(1)
+else:
+    print(0)
